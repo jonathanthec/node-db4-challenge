@@ -1,11 +1,5 @@
 exports.up = function(knex) {
     return knex.schema
-        .createTable("recipe", tbl => {
-            tbl.increments();
-            tbl.string("recipe_title", 128)
-                .notNullable()
-                .index();
-        })
         .createTable("instruction", tbl => {
             tbl.primary(["recipe_id", "step"]);
             tbl.integer("recipe_id")
